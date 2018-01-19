@@ -87,7 +87,7 @@ public class UI_main extends javax.swing.JFrame {
         jLabel6.setText("Key:");
 
         jButton2.setText("Decrypt");
-        //decrypt button
+       //decrypt button
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -176,25 +176,27 @@ public class UI_main extends javax.swing.JFrame {
     }                                           
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       Encrypt_Decrypt ED=new Encrypt_Decrypt();
+       Encrypt_Decrypt ED1=new Encrypt_Decrypt();
        
-       ED.Filelocation=jTextField1.getText();
-       System.out.println(ED.Filelocation);
+       ED1.Filelocation=jTextField1.getText();
+       System.out.println(ED1.Filelocation);
        try{
-           ED.Encrypt();
-           System.out.println(ED.key);
-           jTextField2.setText(ED.key);
+           ED1.Encrypt();
+           System.out.println(ED1.key);
+           jTextField2.setText(ED1.key);
        }
        catch (Exception e)
        {}
     }                                        
 
     	//jbutton2 func
-    
+   
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         Encrypt_Decrypt ED=new Encrypt_Decrypt();
         
-        ED.key=jPasswordField1.getText();
+        ED.key=jPasswordField1.getPassword()+" ";
+	ED.key.trim();
+	ED.Filelocation=jTextField3.getText();
         System.out.println(ED.Filelocation);
         try{
             ED.Decrypt();

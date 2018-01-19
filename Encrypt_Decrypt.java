@@ -47,7 +47,7 @@ public String key="";
 					{
 						if(r1%2==0)
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)+encpArray1[eA1point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)+encpArray1[eA1point]);
 							eA1point++;
 							if(eA1point>=encpArray1.length)
 								eA1point=0;
@@ -55,7 +55,7 @@ public String key="";
 						}
 						else
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)+encpArray2[eA2point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)+encpArray2[eA2point]);
 							eA2point++;
 							if(eA2point>=encpArray2.length)
 								eA2point=0;
@@ -67,7 +67,7 @@ public String key="";
 					{
 						if(r2%2==0)
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)+encpArray3[eA3point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)+encpArray3[eA3point]);
 							eA3point++;
 							if(eA3point>=encpArray3.length)
 								eA3point=0;
@@ -75,7 +75,7 @@ public String key="";
 						}
 						else
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)+encpArray4[eA4point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)+encpArray4[eA4point]);
 							eA4point++;
 							if(eA4point>=encpArray4.length)
 								eA4point=0;
@@ -118,21 +118,23 @@ public String key="";
 		BufferedReader br= new BufferedReader(new FileReader(Filelocation));
 		//BufferedReader fr=new BufferedReader(new FileWriter("EncptDATA.txt"));
 		//FileWriter fw=new FileWriter("EncptDATA.txt");
-		BufferedWriter fw = new BufferedWriter(new FileWriter("DecptDATA.txt"));
-
+		BufferedWriter fw = new BufferedWriter(new FileWriter("DecryptDATA.txt"));
+		
                 //fw.write("rasmi");
 		int r1,r2,r3,r4,val;
-		int index;
+		int index=0;
 		String DataSrc,EncptStr="";
 		
-		r1=Integer.parseInt(key.chatAt(0));
-		r2=Integer.parseInt(key.chatAt(2));
-		r3=Integer.parseInt(key.chatAt(4));
-		r4=Integer.parseInt(key.chatAt(6));
-		
+		r1=Integer.parseInt(key.charAt(0)+"");
+		r2=Integer.parseInt(key.charAt(2)+"");
+		r3=Integer.parseInt(key.charAt(4)+"");
+		r4=Integer.parseInt(key.charAt(6)+"");
+		System.out.println(r1+" " +r2+" " +r3+" " +r4+" "); // temporary
+
+
 		while((DataSrc=br.readLine())!=null)
 		{
-			
+			System.out.println(DataSrc);
 			index=0;
 			
 			do
@@ -143,7 +145,7 @@ public String key="";
 					{
 						if(r1%2==0)
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)-encpArray1[eA1point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)-encpArray1[eA1point]);
 							eA1point++;
 							if(eA1point>=encpArray1.length)
 								eA1point=0;
@@ -151,7 +153,7 @@ public String key="";
 						}
 						else
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)-encpArray2[eA2point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)-encpArray2[eA2point]);
 							eA2point++;
 							if(eA2point>=encpArray2.length)
 								eA2point=0;
@@ -163,7 +165,7 @@ public String key="";
 					{
 						if(r2%2==0)
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)-encpArray3[eA3point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)-encpArray3[eA3point]);
 							eA3point++;
 							if(eA3point>=encpArray3.length)
 								eA3point=0;
@@ -171,7 +173,7 @@ public String key="";
 						}
 						else
 						{
-							EncptStr=EncptStr+(DataSrc.charAt(index)-encpArray4[eA4point]);
+							EncptStr=EncptStr+(char)(DataSrc.charAt(index)-encpArray4[eA4point]);
 							eA4point++;
 							if(eA4point>=encpArray4.length)
 								eA4point=0;
